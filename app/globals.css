@@ -40,3 +40,38 @@ body {
     text-wrap: balance;
   }
 }
+
+.developer_shine {
+  color: hsla(0, 0%, 28%, 0.082);
+  font-size: 50px !important;
+  font-weight: bold !important;
+  font-family: monospace;
+  /* letter-spacing: 7px !important; */
+  /* text-transform: uppercase; */
+}
+
+.developer_shine {
+  /* padding: 64px; */
+  background: linear-gradient(
+    to right,
+    hsla(0, 0%, 30%, 0.3) 0,
+    hsl(0, 0%, 100%) 20%,
+    hsla(0, 0%, 30%, 0.3) 40%
+  );
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: developer_shine 3s infinite linear;
+}
+
+@keyframes developer_shine {
+  0% {
+    background-position: 0px;
+  }
+  100% {
+    background-position: 330px;
+  }
+}
+
+.glow {
+  text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 40px #fff;
+}
