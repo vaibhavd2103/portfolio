@@ -18,7 +18,10 @@ function Home() {
         <div className="flex flex-col gap-4">
           <p className="text-center md:text-left text-2xl">
             {`Hey there! I'm`}{" "}
-            <span className="font-bold text-5xl">Vaibhav Dange</span>,
+            <span className="font-bold text-5xl text-secondary">
+              Vaibhav Dange
+            </span>
+            ,
           </p>
           <p className="text-center md:text-left text-[#fff8]">
             A versatile software developer with a passion for innovation and a
@@ -36,7 +39,8 @@ function Home() {
       </div>
       <Hobbies />
       <WorkExp />
-      <Education />
+      <div className="h-16"></div>
+      {/* <Education /> */}
     </div>
   );
 }

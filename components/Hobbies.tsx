@@ -16,9 +16,9 @@ function Hobbies() {
     },
     {
       id: "3",
-      title: "Singing and Dancing",
+      title: "Music and Photography",
       description:
-        "It isn't just to mention, I do play guitar, harmonium, casio and congo. Also I love to sing in the free time and have posted few covers as well.",
+        "I love playing guitar, harmonium, casio and congo. Also I love to sing in the free time and have posted few covers as well. I also do mobile photography randomly on the way XD",
     },
   ];
   return (
@@ -33,7 +33,7 @@ function Hobbies() {
           return (
             <div
               key={item.id}
-              className="p-6 bg-dark rounded-lg flex flex-col gap-4 items-center cursor-default hover:shadow-xl hover:scale-105 transition-all"
+              className="p-6 bg-dark rounded-lg flex flex-col gap-4 items-center cursor-default hover:shadow-xl hover:scale-105 transition-all hover:bg-primary"
             >
               <p className="text-xl font-bold text-center">{item.title}</p>
               <p className="text-[#fff8] text-center">{item.description}</p>
