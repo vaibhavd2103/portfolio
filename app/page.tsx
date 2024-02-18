@@ -3,21 +3,20 @@
 import Education from "@/components/Education";
 import Hobbies from "@/components/Hobbies";
 import WorkExp from "@/components/WorkExp";
-import useWindowDimensions from "@/utils/useWindowDimensions";
+// import useWindowDimensions from "@/utils/useWindowDimensions";
 import Image from "next/image";
 import React, { useRef, useState } from "react";
 import "./globals.css";
 import { useMotionValue, useTransform, motion } from "framer-motion";
+import NavBar from "@/components/NavBar";
 
 const css = {
   box: {
     backgroundColor: "linen",
     width: "30vw",
     height: "30vw",
-    // position: "relative"
   },
   fly: {
-    // position: "absolute",
     width: "20px",
     height: "20px",
     margin: "-10px",
@@ -59,7 +58,7 @@ function getRelativeCoordinates(event: any, referenceElement: any) {
 }
 
 function Home() {
-  const { height, width } = useWindowDimensions();
+  // const { height, width } = useWindowDimensions();
   // const x = useMotionValue(200);
   // const y = useMotionValue(200);
 
@@ -114,6 +113,7 @@ function Home() {
         }}
         transition={{ type: "tween" }}
       />
+      <NavBar />
       <div className="flex items-center flex-col md:flex-row md:items-start p-16 w-full gap-10">
         <Image
           src={require("@/assets/Profile.jpeg")}

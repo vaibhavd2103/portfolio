@@ -53,7 +53,7 @@ function WorkExp() {
         {workExp.map((item) => {
           return (
             <div
-              className="p-5 bg-primary rounded-lg cursor-pointer hover:bg-secondary-light hover:shadow-secondary-neon transition-all shadow-xl"
+              className="p-5 bg-primary rounded-lg cursor-pointer hover:bg-secondary hover:shadow-secondary-neon transition-all shadow-xl"
               key={item.id}
             >
               <p className="font-semibold text-lg">{item.company}</p>
