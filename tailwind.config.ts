@@ -25,7 +25,7 @@ const config: Config = {
       dark: "#000000",
       green: "#13ce66",
       yellow: "#ffc82c",
-      "gray-dark": "#273444",
+      "gray-dark": "#012",
       gray: "#8492a6",
       "gray-light": "#d3dce6",
     },

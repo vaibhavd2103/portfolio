@@ -83,7 +83,7 @@ function Projects() {
 
   return (
     <motion.div
-      className="bg-dark w-full h-full"
+      className="bg-dark w-full h-full min-h-screen"
       onMouseMove={(e) => handleMouseMove(e)}
       animate={{
         rotateX: mousePosition.centerX,
