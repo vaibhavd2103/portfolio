@@ -10,7 +10,7 @@ import "./globals.css";
 import { useMotionValue, useTransform, motion } from "framer-motion";
 import NavBar from "@/components/NavBar";
 
-const css = {
+export const styles = {
   box: {
     backgroundColor: "linen",
     width: "30vw",
@@ -25,7 +25,7 @@ const css = {
   },
 };
 
-function getRelativeCoordinates(event: any, referenceElement: any) {
+export function getRelativeCoordinates(event: any, referenceElement: any) {
   const position = {
     x: event.pageX,
     y: event.pageY,
@@ -87,14 +87,14 @@ function Home() {
       className="bg-dark h-full w-screen"
     >
       <motion.div
-        style={{ ...css.fly, position: "absolute" }}
+        style={{ ...styles.fly, position: "absolute" }}
         animate={{
           x: mousePosition.x,
           y: mousePosition.y,
         }}
       />
       <motion.div
-        style={{ ...css.fly, position: "absolute", backgroundColor: "gold" }}
+        style={{ ...styles.fly, position: "absolute", backgroundColor: "gold" }}
         animate={{
           x: mousePosition.x,
           y: mousePosition.y,
@@ -103,7 +103,7 @@ function Home() {
       />
       <motion.div
         style={{
-          ...css.fly,
+          ...styles.fly,
           position: "absolute",
           backgroundColor: "orange",
         }}

@@ -42,7 +42,7 @@ function WorkExp() {
     <div className="">
       <div className="w-full flex flex-col bg-primary-dark p-10 pb-40">
         <h3 className="text-2xl font-semibold text-center">
-          My work experience
+          Companies I have worked with
         </h3>
         <p className="text-center">
           I have a total of 2.5+ years of experience as a software developer
