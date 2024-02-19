@@ -18,6 +18,7 @@ const config: Config = {
       primary: "#205295",
       secondary: "#DA0037",
       "primary-dark": "#0A2647",
+      "primary-light": "#3282B8",
       "secondary-light": "#E94560",
       "secondary-neon": "#E9456055",
       // dark: "#1B262C",

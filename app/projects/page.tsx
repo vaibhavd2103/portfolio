@@ -121,7 +121,7 @@ function Projects() {
       <div className="bg-dark w-full h-full p-10">
         <div className="flex items-center justify-between w-full">
           <h1 className="text-4xl font-bold">
-            My side <span className="text-secondary">projects</span> {`-->`}
+            My personal <span className="text-secondary">projects</span> {`-->`}
           </h1>
           <button
             onClick={() => {

@@ -20,11 +20,18 @@ function NavBar() {
       link: "/projects",
     },
     {
+      id: "4",
+      title: "Skills",
+      icon: "",
+      ref: "",
+      link: "/skills",
+    },
+    {
       id: "3",
       title: "Contact",
       icon: "",
       ref: "",
-      link: "/",
+      link: "/contact",
     },
   ];
   const router = useRouter();
