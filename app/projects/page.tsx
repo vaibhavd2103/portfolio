@@ -2,11 +2,11 @@
 
 import Image from "next/image";
 import React, { useRef, useState } from "react";
-import { getRelativeCoordinates } from "../page";
 import { useMotionValue, useTransform, motion } from "framer-motion";
 import { useRouter } from "next/navigation";
+import { getRelativeCoordinates } from "@/utils/mouseTracker";
 
-export const css = {
+const css = {
   box: {
     backgroundColor: "linen",
     width: "30vw",
