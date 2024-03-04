@@ -8,6 +8,7 @@ function WorkExp() {
       jobRole: "Software Developer",
       duration: 7,
       startDate: new Date("10/7/2023"),
+      link: "https://serri.club/",
     },
     {
       id: "2",
@@ -15,6 +16,7 @@ function WorkExp() {
       jobRole: "Frontend Developer",
       duration: 9,
       startDate: new Date("10/7/2023"),
+      link: "https://dwebbox.com/#home",
     },
     {
       id: "3",
@@ -22,6 +24,7 @@ function WorkExp() {
       jobRole: "Frontend Developer and DevOps Engineer",
       duration: 12,
       startDate: new Date("10/7/2023"),
+      link: "https://oviyum.com/",
     },
     {
       id: "4",
@@ -29,6 +32,7 @@ function WorkExp() {
       jobRole: "Frontend Developer",
       duration: 14,
       startDate: new Date("10/7/2023"),
+      link: "https://www.quadb.in/",
     },
     {
       id: "5",
@@ -36,6 +40,7 @@ function WorkExp() {
       jobRole: "Frontend Developer",
       duration: 1,
       startDate: new Date("10/7/2023"),
+      link: "https://www.shellcode.co.in/index.html",
     },
   ];
   return (
@@ -53,7 +58,7 @@ function WorkExp() {
         {workExp.map((item) => {
           return (
             <div
-              className="p-5 bg-primary rounded-lg cursor-pointer hover:bg-secondary hover:shadow-secondary-neon transition-all shadow-xl"
+              className="p-5 bg-primary rounded-lg hover:scale-105 hover:bg-[#000] hover:shadow-secondary transition-all shadow-xl"
               key={item.id}
             >
               <p className="font-semibold text-lg">{item.company}</p>
@@ -63,6 +68,14 @@ function WorkExp() {
                 <span className="font-semibold text-[#fff]">
                   {item.duration} months
                 </span>
+              </p>
+              <p
+                className="text-sm text-[#fff5] underline cursor-pointer"
+                onClick={() => {
+                  window.open(item.link);
+                }}
+              >
+                Click here to visit company
               </p>
             </div>
           );

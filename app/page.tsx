@@ -53,7 +53,7 @@ function Home() {
         rotateY: mousePosition.centerY,
       }}
       ref={boxRef}
-      className="bg-dark h-full w-screen"
+      className="bg-dark h-full w-screen relative"
     >
       <motion.div
         style={{ ...styles.fly, position: "absolute" }}
@@ -83,7 +83,7 @@ function Home() {
         transition={{ type: "tween" }}
       />
       <NavBar />
-      <div className="flex items-center flex-col md:flex-row md:items-start p-16 w-full gap-10">
+      <div className="flex items-center flex-col md:flex-row md:items-start p-16 w-full gap-10 -mt-10">
         <Image
           src={require("@/assets/Profile.jpeg")}
           alt="profile_photo"
@@ -95,7 +95,7 @@ function Home() {
             <span className="group font-bold text-5xl text-secondary">
               Vaibhav Dange{" "}
               <span
-                className="developer_shine invisible group-hover:visible transition-all duration-300"
+                className="developer_shine transition-all duration-300"
                 style={{ fontSize: 40 }}
               >
                 {`<Developer/>`}

@@ -112,7 +112,7 @@ function Contact() {
         </div>
         <div className="mt-10">
           <p className="text-lg">
-            Best is to send me a direct mail at{" "}
+            Contact me directly over mail at{" "}
             <span
               className="text-secondary font-bold cursor-pointer"
               onClick={() => {
@@ -131,7 +131,7 @@ function Contact() {
             Connect with me on other{" "}
             <span className="text-primary font-bold">platforms</span>
           </p>
-          <div className="mt-4 flex gap-12">
+          <div className="mt-4 flex flex-wrap ">
             {platforms.map((item) => {
               return (
                 <div

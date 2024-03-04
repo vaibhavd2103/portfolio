@@ -30,7 +30,7 @@ function Projects() {
         "A B2C website for a startup with various products and two stakeholders. Retailer and Customer data maintenance, hierarchy depiction, etc.",
       tech: "NextJS, Redux, React-flow, MongoDB, ExpressJS, NodeJS, Firebase, One-signal, Typescript, TailwindCSS",
       image: "",
-      github: "",
+      github: "https://github.com/vaibhavd2103/sd-enterprises",
       live: "",
     },
     {
@@ -40,7 +40,7 @@ function Projects() {
         "A hospital management system with all features including appointment booking, precaution recommendation, emergency services and contacts, etc.",
       tech: "React-Native, NodeJS, ExpressJS, Firebase, MongoDB, One-signal, Redux and AWS",
       image: "",
-      github: "",
+      github: "https://github.com/vaibhavd2103/Arogya360",
       live: "",
     },
     {
@@ -49,7 +49,7 @@ function Projects() {
       description: "Music streaming app with Spotify API and user friendly UI.",
       tech: "React-Native, Expo, Redux, Spotify and Firebase",
       image: "",
-      github: "",
+      github: "https://github.com/vaibhavd2103/Music-App",
       live: "",
     },
     {
@@ -59,7 +59,7 @@ function Projects() {
         "A daily task manager and reminder with an easy to use user interface with personal theming and federated authentication.",
       tech: "ReactJS, MongoDB, NodeJS, ExpressJS, Unsplash, Firebase, One-signal and Redux",
       image: "",
-      github: "",
+      github: "https://github.com/vaibhavd2103/Todo-Frontend",
       live: "",
     },
     {
@@ -69,7 +69,7 @@ function Projects() {
         "I created a movies entertainment website which had data from TMDB movies database. It tastes similar to Netflix and also shows you trailer and other deep and relevant information about the movies.",
       tech: "ReactJS, TMDB, Firebase and Redux",
       image: "",
-      github: "",
+      github: "https://github.com/vaibhavd2103/moveez-website",
       live: "",
     },
   ];
@@ -147,6 +147,14 @@ function Projects() {
                 </p>
                 <p className="text-[#fff8] text-center">{item.description}</p>
                 <p className="text-center">{item.tech}</p>
+                <p
+                  className="text-sm text-[#fff5] underline cursor-pointer"
+                  onClick={() => {
+                    window.open(item.github);
+                  }}
+                >
+                  Click here to see github
+                </p>
               </div>
             );
           })}
