@@ -1,189 +1,171 @@
-"use client";
+﻿"use client";
 
-import React, { useRef, useState } from "react";
+import { useEffect } from "react";
 import { motion } from "framer-motion";
-import { useRouter } from "next/navigation";
-import { getRelativeCoordinates } from "@/utils/mouseTracker";
+import Link from "next/link";
 import NavBar from "@/components/NavBar";
 
-const fly = {
-  width: "20px",
-  height: "20px",
-  margin: "-10px",
-  borderRadius: 10,
-};
+const skillGroups = [
+  {
+    label: "UX/UI Design",
+    color: "var(--accent)",
+    items: ["JavaScript", "TypeScript", "Python", "Java", "C"],
+  },
+  {
+    label: "Prototyping Skills",
+    color: "#2d6a4f",
+    items: ["React", "React Native", "Next.js", "Expo", "Angular", "Spring Boot"],
+  },
+  {
+    label: "Tools & Platforms",
+    color: "#40916c",
+    items: ["Node.js", "Express.js", "GraphQL", "TailwindCSS", "Sass", "Redux"],
+  },
+  {
+    label: "Cloud & DevOps",
+    color: "#52b788",
+    items: ["AWS", "Firebase", "Google Cloud", "Azure", "Cloudflare", "Docker"],
+  },
+  {
+    label: "Dev Tools",
+    color: "#74c69d",
+    items: ["Git / GitHub", "Linux", "Android Studio", "Xcode", "Figma", "Postman"],
+  },
+];
 
 const technicalSkills = [
-  {
-    category: "Programming Languages",
-    data: [
-      { name: "JavaScript", rate: 80 },
-      { name: "Python", rate: 70 },
-      { name: "Java", rate: 50 },
-      { name: "C", rate: 50 },
-    ],
-  },
-  {
-    category: "Libraries, Frameworks & Technologies",
-    data: [
-      { name: "React", rate: 80 },
-      { name: "React Native", rate: 80 },
-      { name: "Expo", rate: 80 },
-      { name: "NextJS", rate: 80 },
-      { name: "TailwindCSS", rate: 80 },
-      { name: "Sass", rate: 80 },
-      { name: "GraphQL", rate: 60 },
-      { name: "ExpressJS", rate: 70 },
-      { name: "NodeJS", rate: 70 },
-      { name: "Angular", rate: 50 },
-      { name: "Spring Boot", rate: 40 },
-      { name: "TensorFlow", rate: 50 },
-      { name: "One Signal", rate: 50 },
-      { name: "Git / GitHub", rate: 80 },
-      { name: "Android Studio", rate: 50 },
-      { name: "Xcode", rate: 50 },
-      { name: "Linux", rate: 40 },
-    ],
-  },
-  {
-    category: "Cloud Services",
-    data: [
-      { name: "AWS", rate: 70 },
-      { name: "Firebase", rate: 80 },
-      { name: "Google Cloud", rate: 50 },
-      { name: "Microsoft Azure", rate: 50 },
-      { name: "Cloudflare", rate: 50 },
-    ],
-  },
+  { name: "JavaScript / TypeScript", rate: 82 },
+  { name: "React & React Native",    rate: 85 },
+  { name: "Next.js",                 rate: 80 },
+  { name: "Node.js & Express",       rate: 72 },
+  { name: "Firebase & AWS",          rate: 75 },
+  { name: "TailwindCSS",             rate: 82 },
+  { name: "MongoDB",                 rate: 68 },
+  { name: "Python",                  rate: 65 },
 ];
 
 const otherSkills = [
-  {
-    category: "Sports",
-    data: ["Basketball", "Football", "Swimming", "Badminton", "Handball", "Cricket"],
-  },
-  {
-    category: "Music",
-    data: ["Singing", "Guitar", "Harmonium", "Casio", "Congo", "Audacity"],
-  },
-  {
-    category: "Photography & Design",
-    data: ["Adobe Lightroom", "Photoshop", "Figma", "Canva", "Filmora"],
-  },
+  { category: "Sports",                items: ["Basketball", "Football", "Swimming", "Badminton", "Handball", "Cricket"] },
+  { category: "Music",                 items: ["Guitar", "Harmonium", "Casio", "Congo", "Singing", "Audacity"] },
+  { category: "Photography & Design",  items: ["Adobe Lightroom", "Photoshop", "Figma", "Canva", "Filmora"] },
 ];
 
-function Skills() {
-  const [mousePosition, setMousePosition] = useState<any>({});
-  const boxRef = useRef(null);
-  const handleMouseMove = (e: any) => {
-    setMousePosition(getRelativeCoordinates(e, boxRef.current));
-  };
-
-  const router = useRouter();
-
+function SkillBar({ name, rate }: { name: string; rate: number }) {
   return (
-    <motion.div
-      className="bg-dark w-screen overflow-x-hidden h-full min-h-screen"
-      onMouseMove={handleMouseMove}
-      animate={{
-        rotateX: mousePosition.centerX,
-        rotateY: mousePosition.centerY,
-      }}
-      ref={boxRef}
-    >
-      <motion.div
-        style={{ ...fly, position: "absolute", backgroundColor: "red" }}
-        animate={{ x: mousePosition.x, y: mousePosition.y }}
-      />
-      <motion.div
-        style={{ ...fly, position: "absolute", backgroundColor: "gold" }}
-        animate={{ x: mousePosition.x, y: mousePosition.y }}
-        transition={{ type: "spring" }}
-      />
-      <motion.div
-        style={{ ...fly, position: "absolute", backgroundColor: "orange" }}
-        animate={{ x: mousePosition.x, y: mousePosition.y }}
-        transition={{ type: "tween" }}
-      />
-      <NavBar />
-      <div className="w-full h-full p-10">
-        <div className="flex items-center justify-between w-full">
-          <h1 className="text-4xl font-bold">
-            Things I <span className="text-secondary">know</span> and can{" "}
-            <span className="text-secondary">do</span>
-          </h1>
-          <button
-            onClick={() => router.back()}
-            className="transition-all min-w-[90px] duration-200 border border-[#ffffff33] hover:border-white px-6 py-2 rounded-lg outline-none flex gap-2 hover:gap-4 text-sm"
-          >
-            <span>←</span>
-            <span className="hidden md:inline">Go back</span>
-          </button>
-        </div>
-
-        <div className="mt-10 relative">
-          <p className="absolute text-[300px] font-extrabold opacity-5 select-none pointer-events-none leading-none">
-            {"</>"}
-          </p>
-          <h3 className="text-3xl font-semibold [text-shadow:_0_0_10px_#fff]">
-            Technical skills
-          </h3>
-          <div className="flex flex-col gap-8 mt-6">
-            {technicalSkills.map((item) => (
-              <div key={item.category}>
-                <p className="text-[#fff8] font-bold text-lg mb-3">
-                  {item.category}
-                </p>
-                <div className="flex flex-wrap gap-6">
-                  {item.data.map((data) => (
-                    <div key={data.name} className="flex flex-col gap-1 min-w-[110px]">
-                      <p className="text-sm">
-                        {data.name}
-                        <span className="ml-1 text-[10px] text-[#8492a6]">
-                          {data.rate}%
-                        </span>
-                      </p>
-                      <div className="rounded-full h-1.5 w-full bg-primary-dark overflow-hidden">
-                        <div
-                          className="bg-secondary h-full rounded-full"
-                          style={{ width: `${data.rate}%` }}
-                        />
-                      </div>
-                    </div>
-                  ))}
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-
-        <div className="mt-20 relative">
-          <h3 className="text-3xl font-semibold [text-shadow:_0_0_10px_#fff]">
-            Other skills
-          </h3>
-          <div className="flex flex-col gap-8 mt-6">
-            {otherSkills.map((item) => (
-              <div key={item.category}>
-                <p className="text-[#fff8] font-bold text-lg mb-3">
-                  {item.category}
-                </p>
-                <div className="flex flex-wrap gap-4">
-                  {item.data.map((data) => (
-                    <span
-                      key={data}
-                      className="px-3 py-1 border border-[#ffffff22] rounded-full text-sm transition-all duration-300 hover:border-primary hover:text-white text-[#ffffffbb]"
-                    >
-                      {data}
-                    </span>
-                  ))}
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
+    <div className="flex flex-col gap-1.5">
+      <div className="flex justify-between items-center">
+        <span className="text-sm font-medium" style={{ color: "var(--text-secondary)" }}>{name}</span>
+        <span className="text-xs" style={{ color: "var(--text-muted)" }}>{rate}%</span>
       </div>
-    </motion.div>
+      <div className="h-1.5 rounded-full overflow-hidden" style={{ background: "var(--bg-secondary)" }}>
+        <motion.div
+          initial={{ width: 0 }}
+          whileInView={{ width: `${rate}%` }}
+          viewport={{ once: true }}
+          transition={{ duration: 1, ease: "easeOut", delay: 0.1 }}
+          className="h-full rounded-full"
+          style={{ background: "linear-gradient(90deg, var(--accent), var(--accent-light))" }}
+        />
+      </div>
+    </div>
   );
 }
 
-export default Skills;
+export default function Skills() {
+  useEffect(() => {
+    const els = document.querySelectorAll(".reveal, .stagger-children");
+    const obs = new IntersectionObserver(
+      es => es.forEach(e => { if (e.isIntersecting) e.target.classList.add("visible"); }),
+      { threshold: 0.1 }
+    );
+    els.forEach(el => obs.observe(el));
+    return () => obs.disconnect();
+  }, []);
+
+  return (
+    <div className="min-h-screen" style={{ background: "var(--bg)" }}>
+      <NavBar />
+
+      <main className="max-w-3xl mx-auto px-6 pt-28 pb-20">
+        {/* Header */}
+        <div className="text-center mb-16 reveal">
+          <p className="handwritten text-lg mb-2">Things which I know and can do</p>
+          <h1 className="font-heading font-black text-5xl md:text-6xl" style={{ color: "var(--text-primary)" }}>
+            What I bring<br />to the table
+          </h1>
+        </div>
+
+        {/* Skill category cards — Rivers 3-col pill style */}
+        <div className="flex flex-col gap-6 mb-16">
+          {skillGroups.map((group) => (
+            <motion.div
+              key={group.label}
+              initial={{ opacity: 0, y: 24 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, amount: 0.1 }}
+              transition={{ duration: 0.6, ease: [0.22,1,0.36,1] }}
+              className="glass rounded-2xl overflow-hidden"
+            >
+              {/* Colored header — Rivers style */}
+              <div className="px-6 py-3 flex items-center gap-2"
+                   style={{ background: group.color }}>
+                <span className="text-sm font-bold text-white">{group.label}</span>
+              </div>
+              <div className="p-6 flex flex-wrap gap-2">
+                {group.items.map(item => (
+                  <span key={item} className="pill">{item}</span>
+                ))}
+              </div>
+            </motion.div>
+          ))}
+        </div>
+
+        {/* Proficiency bars */}
+        <div className="reveal mb-16">
+          <p className="handwritten text-lg mb-1" style={{ color: "var(--text-muted)" }}>Proficiency levels</p>
+          <h2 className="font-heading font-bold text-3xl mb-8" style={{ color: "var(--text-primary)" }}>
+            Core technical skills
+          </h2>
+          <div className="glass rounded-2xl p-6 flex flex-col gap-5">
+            {technicalSkills.map(s => <SkillBar key={s.name} {...s} />)}
+          </div>
+        </div>
+
+        {/* Other skills — Rivers pill grid */}
+        <div className="reveal">
+          <h2 className="font-heading font-bold text-3xl mb-8" style={{ color: "var(--text-primary)" }}>
+            Beyond code
+          </h2>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-5 stagger-children">
+            {otherSkills.map(group => (
+              <div key={group.category} className="glass rounded-2xl overflow-hidden">
+                <div className="px-5 py-3" style={{ background: "var(--accent)" }}>
+                  <span className="text-sm font-bold text-white">{group.category}</span>
+                </div>
+                <div className="p-5 flex flex-wrap gap-2">
+                  {group.items.map(item => (
+                    <span key={item} className="pill text-xs">{item}</span>
+                  ))}
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        {/* CTA */}
+        <div className="mt-16 reveal">
+          <div className="glass rounded-2xl px-8 py-8 text-center flex flex-col items-center gap-4">
+            <p className="handwritten text-lg" style={{ color: "var(--text-muted)" }}>Want to hire me?</p>
+            <h3 className="font-heading font-bold text-xl" style={{ color: "var(--text-primary)" }}>
+              Let&apos;s build something great
+            </h3>
+            <div className="flex gap-3">
+              <Link href="/contact" className="btn-primary">Start a Project</Link>
+              <Link href="/experience" className="btn-secondary">View Experience</Link>
+            </div>
+          </div>
+        </div>
+      </main>
+    </div>
+  );
+}

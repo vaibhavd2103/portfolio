@@ -1,22 +1,24 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
 import "./globals.css";
-
-const inter = Inter({ subsets: ["latin"] });
+import { ThemeScript } from "@/components/ThemeScript";
+import { LenisProvider } from "@/components/LenisProvider";
 
 export const metadata: Metadata = {
-  title: "Vaibhav Dange",
-  description: "Developed by me",
+  title: "Vaibhav Dange — Software Developer",
+  description:
+    "Full-stack & mobile software developer with 2.5+ years of experience in web, mobile apps, and cloud.",
 };
 
-export default function RootLayout({
-  children,
-}: Readonly<{
-  children: React.ReactNode;
-}>) {
+export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en">
-      <body className={inter.className}>{children}</body>
+    <html lang="en" suppressHydrationWarning>
+      <head>
+        <ThemeScript />
+      </head>
+      <body className="noise">
+        <LenisProvider />
+        {children}
+      </body>
     </html>
   );
 }
