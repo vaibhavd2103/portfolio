@@ -8,32 +8,51 @@ const config: Config = {
   ],
   theme: {
     extend: {
+      colors: {
+        green: {
+          50:  "#f0f7f1",
+          100: "#dceede",
+          200: "#b5d9bb",
+          300: "#8dbf96",
+          400: "#6a9e73",
+          500: "#4d7a55",
+          600: "#3a5a40",
+          700: "#2e4232",
+          800: "#243328",
+          900: "#1a2b1d",
+        },
+        white:       "#ffffff",
+        black:       "#000000",
+        transparent: "transparent",
+      },
+      fontFamily: {
+        sans:    ["Poppins", "sans-serif"],
+        mono:    ["ui-monospace", "SFMono-Regular", "monospace"],
+        heading: ["Poppins", "sans-serif"],
+      },
       backgroundImage: {
         "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",
-        "gradient-conic":
-          "conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))",
       },
-    },
-    colors: {
-      primary: "#205295",
-      secondary: "#DA0037",
-      "primary-dark": "#0A2647",
-      "primary-light": "#3282B8",
-      "secondary-light": "#E94560",
-      "secondary-neon": "#E9456055",
-      dark: "#000000",
-      green: "#13ce66",
-      yellow: "#ffc82c",
-      "gray-dark": "#012",
-      gray: "#8492a6",
-      "gray-light": "#d3dce6",
-      white: "#ffffff",
-      black: "#000000",
-      transparent: "transparent",
-    },
-    fontFamily: {
-      sans: ["Graphik", "sans-serif"],
-      serif: ["Merriweather", "serif"],
+      animation: {
+        "fade-up":  "fadeUp 0.7s cubic-bezier(0.22,1,0.36,1) forwards",
+        "fade-in":  "fadeIn 0.8s ease forwards",
+        float:      "float 6s ease-in-out infinite",
+        "spin-slow":"spin 8s linear infinite",
+      },
+      keyframes: {
+        fadeUp: {
+          "0%":   { opacity: "0", transform: "translateY(28px)" },
+          "100%": { opacity: "1", transform: "translateY(0)" },
+        },
+        fadeIn: {
+          "0%":   { opacity: "0" },
+          "100%": { opacity: "1" },
+        },
+        float: {
+          "0%,100%": { transform: "translateY(0px)" },
+          "50%":     { transform: "translateY(-10px)" },
+        },
+      },
     },
   },
   plugins: [],
