@@ -36,7 +36,6 @@ export function SmoothScrollPolyfill() {
 
     // Patch window.scrollTo so { behavior: "smooth" } works everywhere
     const nativeScrollTo = window.scrollTo.bind(window);
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     (window as any).scrollTo = function (xOrOptions: any, y?: number) {
       if (
         xOrOptions !== null &&
