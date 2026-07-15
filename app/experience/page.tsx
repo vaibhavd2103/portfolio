@@ -8,6 +8,28 @@ import { FaExternalLinkAlt } from "react-icons/fa";
 
 const workExp = [
   {
+    id: "6",
+    company: "LPDG Lehmann + Pioneers Digital Group",
+    role: "Working Student",
+    period: "Jul 2025 – Present",
+    duration: "ongoing",
+    type: "Working Student",
+    location: "Stuttgart, Germany",
+    link: "",
+    desc: "Developing a complex IoT platform and Multi Agent System with LLM integrations using Azure, Open Router and FastAPI. Built microservices with Express.js and Python. Optimised performance by 15% through bottleneck analysis.",
+  },
+  {
+    id: "7",
+    company: "AP Sensing",
+    role: "Working Student",
+    period: "Jan 2025 – Jun 2025",
+    duration: "6 months",
+    type: "Working Student",
+    location: "Stuttgart, Germany",
+    link: "https://www.apsensing.com/",
+    desc: "Built a NextJS + Tailwind web application from scratch as standalone developer. Contributed to FastAPI backend for data flow optimisations. Delivered 20% performance boost via Docker container orchestration with Kubernetes, Argo CI/CD and Azure services.",
+  },
+  {
     id: "4",
     company: "QuadB",
     role: "Frontend Developer",
@@ -65,8 +87,8 @@ const workExp = [
 ];
 
 const achievements = [
-  { value: "5+",  label: "Companies worked with" },
-  { value: "2.5+", label: "Years of experience" },
+  { value: "7+",  label: "Companies worked with" },
+  { value: "4+", label: "Years of experience" },
   { value: "10+", label: "Products shipped" },
 ];
 

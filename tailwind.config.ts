@@ -26,8 +26,8 @@ const config: Config = {
         transparent: "transparent",
       },
       fontFamily: {
-        sans:    ["Poppins", "sans-serif"],
-        mono:    ["ui-monospace", "SFMono-Regular", "monospace"],
+        sans:    ["JetBrains Mono", "ui-monospace", "monospace"],
+        mono:    ["JetBrains Mono", "ui-monospace", "monospace"],
         heading: ["Poppins", "sans-serif"],
       },
       backgroundImage: {
